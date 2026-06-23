@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GameSetup } from "./components/setup/GameSetup";
+import { GameTable } from "./components/game/GameTable";
 
 function App() {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -16,16 +17,7 @@ function App() {
     return <GameSetup onStartGame={handleStartGame} />;
   }
 
-  // Temporal - luego reemplazaremos con GameTable
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-white text-center">
-        <h1 className="text-3xl">Bienvenido {playerName}</h1>
-        <p className="text-gray-400">Saldo: S/ {balance}</p>
-        <p className="text-sm text-gray-500 mt-4">Próximo: Mesa de juego</p>
-      </div>
-    </div>
-  );
+  return <GameTable playerName={playerName} initialBalance={balance} />;
 }
 
 export default App;
